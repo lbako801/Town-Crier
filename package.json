@@ -4,7 +4,7 @@
   "description": "Social media app for cities and neighborhoods",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node server",
     "dev": "nodemon server"
   },
   "repository": {
