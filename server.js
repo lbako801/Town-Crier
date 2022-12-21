@@ -2,7 +2,7 @@ const path = require('path');
 const http = require('http');
 const express = require('express');
 const socketio = require('socket.io');
-
+const { message } = require('statuses');
 
 const app = express();
 const server = http.createServer(app)
@@ -15,6 +15,20 @@ app.use(express.static(path.join(__dirname,'public')));
 io.on('connection', socket => {
     console.log('New connection');
     socket.emit('post', 'testing socket.io post')
+
+    //runs for all clients
+    io.emit('message', 'testing io.emit')
+
+    //socket disconnect message test
+    socket.on('disconnect', () => {
+        io.emit('message', 'testing disconnect')
+    })
+
+    //listens for chat messages and sends them to the server
+    socket.on('messageBoxText', (msg) => {
+        io.emit('message', msg);
+         console.log(msg);
+    })
 })
 
 // Setting server PORT as 3000 OR the environmental port
