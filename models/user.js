@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
-const User = require('../../../class-repo/Bootcamp-Modules/14-MVC/01-Activities/23-Ins_Auth-Review/models/User');
+const User = require('./models/user.js');
 
 //Add class extension below
 
@@ -34,6 +34,5 @@ User.init(
           },
     }
 )
-
 
 module.exports = User;
