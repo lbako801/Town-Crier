@@ -37,7 +37,7 @@ User.init(
       allowNull: false,
       references: {
         model: "city",
-        key: "id",
+        key: "city_name",
       },
       validate: {
         isAlpha: true,

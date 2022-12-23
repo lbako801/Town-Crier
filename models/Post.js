@@ -12,7 +12,7 @@ Post.init(
       autoIncrement: true,
     },
     creator_id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       references: {
         model: "user",
         key: "id",
@@ -27,7 +27,7 @@ Post.init(
       allowNull: false,
       references: {
         model: "city",
-        key: "id",
+        key: "city_name",
       },
       validate: {
         isAlpha: true,
