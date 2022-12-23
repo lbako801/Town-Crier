@@ -1,5 +1,42 @@
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap link to allow for us -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+  <!-- CSS stylesheet link -->
+  <link rel="stylesheet" href="./Assets/style.css" />
+  <title></title>
+</head>
+
 <body>
-    <div>
+    
+    <div class="jumbotron d-flex flex-row">
+        <h1 class="display-4">Welcome to Town Crier!</h1> 
+        <img src="@Url.Content(~/town-crier-official-logo.png)" class="img-fluid">
+    </div>
+
+    <section id="Sign-In" class="visible">
+        <div class="container border border-dark w-25">
+            <div class="welcome-banner d-flex flex-column mt-3">
+                <h2 class="welcome mx-auto">Welcome!</h2>
+                <h5 id="randfact" class="fact mx-auto">Random Fact Here!</h5>
+            </div>
+            <div class="input-group mb-3 d-flex flex-column">
+                <input type="text" class="form-control rounded w-100 mb-3 mt-3 mx-auto" placeholder="User Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input type="text" class="form-control rounded w-100 mb-3" placeholder="Password" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <button type="button" class="btn btn-primary w-50 mx-auto">Log In</Inp></button>
+            </div>
+        </div>
+    </section>
+
+    <section id="Sign-Up" class="hidden">
+
+    </section>
+    
+
+    {{!-- <div>
         <form id="message-box">
             <input
             id="msg"
@@ -7,5 +44,15 @@
             placeholder="TEST"
             />
         </form>
-    </div>
+    </div> --}}
+
+
+    <!-- Link to jquery to allow for us -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- Link to moment api -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <!-- Javascript Link to HTMl -->
+    <script src="./Assets/script.js"></script>
 </body>
+
+
