@@ -20,6 +20,7 @@ app.use(express.static(path.join(__dirname,'public')));
 app.use(require('./controllers'))
 
 //Following code happens whenever a connection is made, including new users
+
 io.on('connection', socket => {
     console.log('New connection');
     socket.emit('post', 'testing socket.io post')
