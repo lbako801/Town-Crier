@@ -1,6 +1,8 @@
 const path = require('path');
 const http = require('http');
 const express = require('express');
+const exphbs = require('express-handlebars');
+const hbs = exphbs.create({});
 const socketio = require('socket.io');
 const { message } = require('statuses');
 
@@ -8,8 +10,14 @@ const app = express();
 const server = http.createServer(app)
 const io = socketio(server);
 
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
 //Telling server to use the static pages (handlebars) in the public folder
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname,'public')));
+app.use(require('./controllers'))
 
 //Following code happens whenever a connection is made, including new users
 io.on('connection', socket => {
