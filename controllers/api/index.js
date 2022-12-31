@@ -3,7 +3,7 @@ const cityRoutes = require("./city-routes");
 const { Post, User } = require("../../models");
 router.use("/city", cityRoutes);
 
-router.get("/:city", async (req, res) => {
+/* router.get("/:city", async (req, res) => {
   try {
     const requestedCity = req.params.city;
     console.log(req.params.city);
@@ -26,7 +26,7 @@ router.get("/:city", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/:city", async (req, res) => {
   try {
     const addPost = await Post.create({
       creator_id: req.body.creator_id,
@@ -37,6 +37,6 @@ router.post("/", async (req, res) => {
   } catch (error) {
     res.status(500).json(error);
   }
-});
+}); */
 
 module.exports = router;

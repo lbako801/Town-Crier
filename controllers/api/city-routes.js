@@ -10,12 +10,20 @@ router.get("/:city", async (req, res) => {
         city_name: requestedCity,
       },
     });
-    res.status(200).json(cityData);
+
+    const posts = cityData.map((post) => {
+      post.get({ plain: true });
+    });
+
+    res.render("citypage", {
+      posts,
+      loggedIn: req.session.loggedIn,
+    });
   } catch (error) {
     res.status(500).json(error);
   }
 });
-router.post("/", async (req, res) => {
+router.post("/:city", async (req, res) => {
   try {
     const addPost = await Post.create({
       creator_id: req.body.creator_id,
