@@ -1,7 +1,7 @@
 const router = (require = require("express").Router());
 
 //add router.use block
-router.get("/", async (req, res) => {
+router.get("/homepage", async (req, res) => {
   res.render("homepage");
 });
 
