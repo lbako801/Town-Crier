@@ -14,6 +14,7 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 //Telling server to use the static pages (handlebars) in the public folder
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname,'public')));
@@ -25,8 +26,6 @@ io.on('connection', socket => {
     console.log('New connection');
     socket.emit('post', 'testing socket.io post')
 
-    //runs for all clients
-    io.emit('message', 'testing io.emit')
 
     //socket disconnect message test
     socket.on('disconnect', () => {
@@ -41,6 +40,7 @@ io.on('connection', socket => {
 })
 
 // Setting server PORT as 3000 OR the environmental port
+
 const PORT = process.env.PORT || 3000;
 
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
