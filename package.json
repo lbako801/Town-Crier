@@ -125,6 +125,7 @@
   },
   "homepage": "https://github.com/lbako801/Town-Crier#readme",
   "devDependencies": {
+    "eslint": "^8.30.0",
     "nodemon": "^2.0.20"
   }
 }
