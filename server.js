@@ -18,9 +18,14 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static('static'));
 app.use(require('./controllers'))
 
 //Following code happens whenever a connection is made, including new users
+//trying to get image to work
+app.get('/static', (req,res) => {
+    res.render('static')
+});
 
 io.on('connection', socket => {
     console.log('New connection');
