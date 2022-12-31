@@ -17,7 +17,7 @@
         <img src="@Url.Content(~/town-crier-official-logo.png)" class="img-fluid">
     </div>
 
-    <section id="Sign-In" class="visible">
+    <section id="Sign-In" class="d-none">
         <div class="container rounded border border-dark w-25">
             <div class="welcome-banner d-flex flex-column mt-3">
                 <h2 class="welcome mx-auto">Welcome!</h2>
@@ -31,6 +31,27 @@
             <div class="d-flex flex-row justify-content-between">
                 <h6 class="">Don't have an account</h6>
                 <h6 class="">Forgot username or password</h6>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="Sign-Up" class="">
+        <div class="container rounded border border-dark w-25">
+            <div class="welcome-banner d-flex flex-column mt-3">
+                <h2 class="welcome mx-auto">Welcome!</h2>
+                <h5 id="randfact" class="fact mx-auto">Random Fact Here!</h5>
+            </div>
+            <div class="input-group mb-3 d-flex flex-column">
+                <input id="firstname" type="text" class="form-control rounded w-100 mb-3 mt-3 mx-auto" placeholder="First Name"
+                    aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input id="lastname" type="text" class="form-control rounded w-100 mb-3" placeholder="Last Name"
+                    aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input id="usersignup" type="text" class="form-control rounded w-100 mb-3" placeholder="Username"
+                    aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input id="passsignup" type="text" class="form-control rounded w-100 mb-3" placeholder="Password"
+                    aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <button type="button" class="btn btn-primary w-50 mx-auto">Sign Up</Inp></button>
             </div>
         </div>
     </section>
