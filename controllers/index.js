@@ -2,7 +2,7 @@ const router = require("express").Router();
 const apiRoutes = require("./api");
 router.use("/api", apiRoutes);
 //add router.use block
-router.get("/", async (req, res) => {
+router.get("/homepage", async (req, res) => {
   res.render("homepage");
 });
 

@@ -1,0 +1,69 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+
+<body>
+    <div class="jumbotron d-flex flex-column my-0">
+        <h1 class="display-4 mx-auto my-0">Welcome to Town Crier!</h1>
+        <h3 class="display-6 mx-auto my-2">CITY, STATE</h3>
+        {{!-- <img src="../public/assets/town-crier-OFFICIAL-LOGO.png" class="rounded"
+            alt="Man yelling into megaphone."> --}}
+        {{!-- <div id="navbar" class="col">navbar</div> --}}
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+        <a class="navbar-brand" href="#" type="button">Create New Post</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="navbar-nav ml-auto">
+                <div class="nav-item active">
+                    <a class="nav-link" href="" type="button">Trending</a>
+                </div>
+                <div class="nav-item active">
+                    <a class="nav-link" type="button" href="">Most Cried</a>
+                </div>
+
+                <div class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" type="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        View More
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="">View Profile</a></li>
+                        <li><a class="dropdown-item" href="">View Posts</a></li>
+                        <li><a class="dropdown-item" href="">Settings</a></li>
+                        <div class="dropdown-divider"></div>
+                        <li><a class="dropdown-item" href="#">Sign Out</a></li>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="container-fluid">
+        <div class="row">
+            <div class="col-3">
+                <div class="border border-dark rounded m-1">Sort By</div>
+                <div class="border border-dark rounded m-1">Local Weather</div>
+                <div class="border border-dark rounded m-1">Local News</div>
+            </div>
+            <div id="post-conatainer" class="col-9 border border-dark rounded mx-auto">
+                <a class="post1" href=""><div class="border border-primary rounded w-100 p-2 my-2">POST 1 TITLE USERNAME DATE-CREATED UPVOTES
+                    CRIES</div></a>
+                <a class="post2" href=""><div class="border border-primary rounded w-100 p-2 my-2">POST 2 TITLE USERNAME DATE-CREATED UPVOTES
+                    CRIES</div></a>
+                <a class="post3" href=""><div class="border border-primary rounded w-100 p-2 my-2">POST 3 TITLE USERNAME DATE-CREATED UPVOTES
+                    CRIES</div></a>
+                <a class="post4" href=""><div class="border border-primary rounded w-100 p-2 my-2">POST 4 TITLE USERNAME DATE-CREATED UPVOTES
+                    CRIES</div></a>
+                <a class="post5" href=""><div class="border border-primary rounded w-100 p-2 my-2">POST 5 TITLE USERNAME DATE-CREATED UPVOTES
+                    CRIES</div></a>
+            </div>
+        </div>
+    </section>
+
+</body>
