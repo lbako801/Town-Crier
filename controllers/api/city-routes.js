@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { City, Comment, User, Post } = require("../../models");
+const { Post } = require("../../models");
 
 router.get("/:city", async (req, res) => {
   try {
@@ -15,7 +15,7 @@ router.get("/:city", async (req, res) => {
       post.get({ plain: true });
     });
 
-    res.render("citypage", {
+    res.render("homepage", {
       posts,
       loggedIn: req.session.loggedIn,
     });
