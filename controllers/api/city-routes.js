@@ -4,19 +4,24 @@ const { Post } = require("../../models");
 router.get("/:city", async (req, res) => {
   try {
     const requestedCity = req.params.city;
-    console.log(req.params.city);
+
     const cityData = await Post.findAll({
       where: {
         city_name: requestedCity,
       },
     });
-
+    /* req.session.save(() => {
+      req.session.loggedIn = true;
+      console.log(req.session.loggedIn); 
+    });*/
     const posts = cityData.map((post) => post.get({ plain: true }));
 
     res.render("homepage", {
       posts,
+      //loggedIn: req.session.loggedIn,
     });
   } catch (error) {
+    console.log(error);
     res.status(500).json(error);
   }
 });
