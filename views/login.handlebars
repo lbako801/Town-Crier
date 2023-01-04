@@ -1,44 +1,80 @@
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Bootstrap link to allow for us -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-  <!-- CSS stylesheet link -->
-  <link rel="stylesheet" href="./Assets/style.css" />
-  <title></title>
-</head>
-
 <body>
-    
-    <div class="jumbotron d-flex flex-row">
-        <h1 class="display-4">Welcome to Town Crier!</h1> 
-        <img src="@Url.Content(~/town-crier-official-logo.png)" class="img-fluid">
+    <div class="jumbotron d-flex flex-column">
+        <h1 class="display-4 mx-auto">Welcome to Town Crier!</h1>
+        {{!-- <img src="../static/town-crier-OFFICIAL-LOGO.png" alt="" class="img-fluid mx-auto"> --}}
     </div>
-
-    <section id="Sign-In" class="visible">
+    
+    <section id="Sign-In" class="">
         <div class="container rounded border border-dark w-25">
             <div class="welcome-banner d-flex flex-column mt-3">
                 <h2 class="welcome mx-auto">Welcome!</h2>
                 <h5 id="randfact" class="fact mx-auto">Random Fact Here!</h5>
             </div>
             <div class="input-group mb-3 d-flex flex-column">
-                <input type="text" class="form-control rounded w-100 mb-3 mt-3 mx-auto" placeholder="User Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <input type="text" class="form-control rounded w-100 mb-3" placeholder="Password" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input type="text" class="form-control rounded w-100 mb-3 mt-3 mx-auto" placeholder="User Name"
+                    aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input type="text" class="form-control rounded w-100 mb-3" placeholder="Password"
+                    aria-label="Recipient's username" aria-describedby="basic-addon2">
                 <button type="button" class="btn btn-primary w-50 mx-auto">Log In</Inp></button>
             </div>
             <div class="d-flex flex-row justify-content-between">
-                <h6 class="">Don't have an account</h6>
-                <h6 class="">Forgot username or password</h6>
+                <button class="border border-white rounded bg-white"><b class="mx-auto text-left">Forgot Username or
+                        Password</b></button>
+                <button class="border border-white rounded bg-white"><b class="mx-auto text-right">Join Town Crier</b></button>
             </div>
         </div>
     </section>
-
-    <section id="Sign-Up" class="hidden">
-
+    
+    
+    <section id="Sign-Up" class="d-none">
+        <div class="container rounded border border-dark w-25">
+            <div class="welcome-banner d-flex flex-column mt-3">
+                <h2 class="welcome mx-auto">Welcome to Town Crier! Please fill in the information to join!</h2>
+            </div>
+            <div class="input-group mb-3 d-flex flex-column">
+                <input id="firstname" type="text" class="form-control rounded w-100 mb-3 mt-3 mx-auto"
+                    placeholder="First Name" aria-label="Recipient's First Name" aria-describedby="basic-addon2">
+                <input id="lastname" type="text" class="form-control rounded w-100 mb-3" placeholder="Last Name"
+                    aria-label="Recipient's Last name" aria-describedby="basic-addon2">
+                <input id="passsignup" type="text" class="form-control rounded w-100 mb-3" placeholder="City"
+                    aria-label="Recipient's City" aria-describedby="basic-addon2">
+                <input id="passsignup" type="text" class="form-control rounded w-100 mb-3" placeholder="State"
+                    aria-label="Recipient's State" aria-describedby="basic-addon2">
+                <input id="lastname" type="text" class="form-control rounded w-100 mb-3" placeholder="Email"
+                    aria-label="Recipient's Email" aria-describedby="basic-addon2">
+                <input id="usersignup" type="text" class="form-control rounded w-100 mb-3" placeholder="Username"
+                    aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input id="passsignup" type="text" class="form-control rounded w-100 mb-3" placeholder="Password"
+                    aria-label="Recipient's Password" aria-describedby="basic-addon2">
+                <button type="button" class="btn btn-primary w-50 mx-auto">Sign Up</Inp></button>
+            </div>
+            <div class="d-flex flex-row justify-content-between">
+                <button class="border border-white rounded bg-white"><b class="mx-0 text-left">I have an
+                        account</b></button>
+                <button class="border border-white rounded bg-white"><b class="mx-0 text-right">Forgot Username or
+                        Password</b></button>
+            </div>
+        </div>
     </section>
     
+    <section id="Forgot" class="d-none">
+        <div class="container rounded border border-dark w-25 p-2">
+            <div class="welcome-banner d-flex flex-column mt-3">
+                <h2 class="welcome mx-auto text-center">You forgot your password?</h2>
+                <h5 class="please mx-auto text-center">Please don't do it again...</h5>
+            </div>
+            <div class="input-group mb-3 mt-3 d-flex flex-column">
+                <input id="usersignup" type="text" class="form-control rounded w-100 mb-3" placeholder="Email"
+                    aria-label="Recipient's Email" aria-describedby="basic-addon2">
+                <button type="button" class="btn btn-primary w-50 mx-auto">Send Email</Inp></button>
+            </div>
+            <div class="d-flex flex-row justify-content-between">
+                <button class="border border-white rounded bg-white"><b class="mx-0 text-left">I have an
+                        account</b></button>
+                <button class="border border-white rounded bg-white"><b class="mx-0 text-right">Join Town Crier</b></button>
+            </div>
+        </div>
+    </section>
 
     {{!-- <div>
         <form id="message-box">
@@ -55,8 +91,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- Link to moment api -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <!-- Javascript Link to HTMl -->
-    <script src="./Assets/script.js"></script>
+    <script src='../public/js/index.js'></script>
 </body>
 
 

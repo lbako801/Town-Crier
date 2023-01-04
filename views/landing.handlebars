@@ -1,29 +1,91 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-<body>
-    <div class="container">
-        <div class="row border border-dark rounded m-1">
-            <h1 class="col">Town Crier</h1>
-            <img src="../public/assets/town-crier-OFFICIAL-LOGO.png" class="rounded" alt="Man yelling into megaphone.">
-            <div id="navbar" class="col">navbar</div>
-        </div>
-        <hero class="row border border-dark rounded m-1">HERO</hero>
+<body class="bg-info">
+    <div class="jumbotron d-flex flex-column my-0">
+        <h1 class="display-4 mx-auto my-0">Welcome to Town Crier!</h1>
+        <h3 id="location" class="display-6 mx-auto my-2">CITY, STATE</h3>
+        {{!-- <img src="../public/assets/town-crier-OFFICIAL-LOGO.png" class="rounded"
+            alt="Man yelling into megaphone."> --}}
+        {{!-- <div id="navbar" class="col">navbar</div> --}}
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-3">
-                <button type="button" class="btn btn-primary border border-dark m-1">Create New Post</button>
-                <div class="border border-dark rounded m-1">Sort By</div>
-                <div class="border border-dark rounded m-1">Local Weather</div>
-                <div class="border border-dark rounded m-1">Local News</div>
+
+<div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+        <a class="navbar-brand" href="#" type="button">Create New Post</a>
+        <div class="text-light">Sort By Dropdown</div>
+
+
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="navbar-nav ml-auto">
+                <div class="nav-item active">
+                    <a class="nav-link" href="/homepage" type="button">Home</a>
+                </div>
+                <div class="nav-item active">
+                    <a class="nav-link" type="button" href="">Most Cried</a>
+                </div>
+
+                <div class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" type="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        View More
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="">View Profile</a></li>
+                        <li><a class="dropdown-item" href="">View Posts</a></li>
+                        <li><a class="dropdown-item" href="">Settings</a></li>
+                        <div class="dropdown-divider"></div>
+                        <li><a class="dropdown-item" href="#">Sign Out</a></li>
+                </div>
             </div>
-            <div id="post-container" class="col-9 border border-dark rounded">Post Container</div>
+
         </div>
-    </div>
-       <div>
-        {{!-- <form id="message-box">
-            <input id="post-title" type="text"/>
-            <input id="msg" type="text" placeholder="TEST"/>
-            <button type="submit">SUBMIT</button>
-        </form> --}}
-    </div>
+        </div>
+    </nav>
+
+
+    <section class="container-fluid mb-5">
+        <div class="row d-flex flex-column">
+            <div class="d-flex mx-auto flex-row justify-content-around w-75">
+                <div class="border border-dark rounded m-1 w-50 text-center bg-dark text-light">Local Weather
+                    <ul>
+                        <li>Temperature</li>
+                        <li>Sunny/Rainy</li>
+                        <li>Humidity</li>
+                        <li>Wind Speed</li>
+                    </ul>
+                </div>
+                <div class="border border-dark rounded m-1 w-50 text-center bg-dark text-light">Local News
+                    <ul>
+                        <li>Date & Time</li>
+                        <li>Sports Score</li>
+                        <li>Local College Sports Scores</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row mx-auto p-2 border border-dark w-75 rounded justify-content-between">
+                <div id="post-title" class="font-weight-bold">POST TITLE by CREATOR</div>
+                <div id="post-date" class="font-weight-bold">DATE-CREATED</div>
+            </div>
+            <div id="post-cont" class="d-flex flex-row mx-auto mt-2 p-2 border border-dark w-75 rounded">
+                <div id="post-body" class="text-monospace"> Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Provident, molestiae perferendis dicta tempora alias repellendus odio voluptatum dignissimos ullam
+                    voluptatibus consectetur debitis quis obcaecati modi tempore, pariatur esse molestias at!</div>
+            </div>
+            <div id="comment-container" class="d-flex flex-column mx-auto mt-2 p-2 border border-dark rounded w-75">
+                <div class="comment my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis velit autem
+                    vero fugit deleniti asperiores. Ipsa quis nostrum accusantium! Amet deleniti sapiente quis, sunt
+                    omnis iure assumenda veniam molestiae accusantium!</div>
+                <div class="comment my-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus, numquam
+                    officia? Quod temporibus illum reprehenderit illo voluptatibus. Vel excepturi enim qui vero fugit
+                    temporibus rerum eaque, reprehenderit molestias repellat magnam.</div>
+            </div>
+        </div>
+    </section>
+
+
+    <script src='../public/js/index.js'></script>
 </body>
