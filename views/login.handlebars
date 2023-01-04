@@ -1,23 +1,23 @@
-<body>
+<body class="">
     <div class="jumbotron d-flex flex-column">
         <h1 class="display-4 mx-auto">Welcome to Town Crier!</h1>
-        {{!-- <img src="../static/town-crier-OFFICIAL-LOGO.png" alt="" class="img-fluid mx-auto"> --}}
+        <img src="./Assets/town-crier-OFFICIAL-LOGO.png" alt="" class="img-fluid mx-auto">
     </div>
     
     <section id="Sign-In" class="">
-        <div class="container rounded border border-dark w-25">
+        <div class="container rounded border border-dark w-50">
             <div class="welcome-banner d-flex flex-column mt-3">
                 <h2 class="welcome mx-auto">Welcome!</h2>
                 <h5 id="randfact" class="fact mx-auto">Random Fact Here!</h5>
             </div>
             <div class="input-group mb-3 d-flex flex-column">
-                <input type="text" class="form-control rounded w-100 mb-3 mt-3 mx-auto" placeholder="User Name"
+                <input id="username" type="text" class="form-control rounded border border-dark w-75 mb-3 mt-3 mx-auto" placeholder="User Name"
                     aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <input type="text" class="form-control rounded w-100 mb-3" placeholder="Password"
+                <input id="password" type="text" class="form-control rounded border border-dark w-75 mb-3 mx-auto" placeholder="Password"
                     aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <button type="button" class="btn btn-primary w-50 mx-auto">Log In</Inp></button>
+                <button id="signinbtn" type="button" class="btn btn-primary w-25 mx-auto">Log In</Inp></button>
             </div>
-            <div class="d-flex flex-row justify-content-between">
+            <div class="d-flex flex-row mb-2 justify-content-between">
                 <button class="border border-white rounded bg-white"><b class="mx-auto text-left">Forgot Username or
                         Password</b></button>
                 <button class="border border-white rounded bg-white"><b class="mx-auto text-right">Join Town Crier</b></button>
