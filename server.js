@@ -15,12 +15,12 @@ app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
 //Telling server to use the static pages (handlebars) in the public folder
-const sess = {
+const sessionInfo = {
   secret: "secrettext",
   resave: false,
   saveUninitialized: true,
 };
-app.use(session(sess));
+app.use(session(sessionInfo));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
