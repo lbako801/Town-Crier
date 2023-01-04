@@ -13,4 +13,12 @@ router.get("/login", async (req, res) => {
   res.render("login");
 });
 
+router.get("/sign-up", async (req, res) => {
+  res.render("sign-up");
+});
+
+router.get("/forgot-password", async (req, res) => {
+  res.render("forgot-password");
+});
+
 module.exports = router;
