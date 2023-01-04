@@ -13,5 +13,11 @@ router.get("/landing", async (req, res) => {
 router.get("/login", async (req, res) => {
   res.render("login");
 });
+router.get("/create", async (req, res) => {
+  res.render("login");
+});
+router.get("/forgotpassword", async (req, res) => {
+  res.render("login");
+});
 
 module.exports = router;
