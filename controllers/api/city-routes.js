@@ -11,13 +11,10 @@ router.get("/:city", async (req, res) => {
       },
     });
 
-    const posts = cityData.map((post) => {
-      post.get({ plain: true });
-    });
+    const posts = cityData.map((post) => post.get({ plain: true }));
 
     res.render("homepage", {
       posts,
-      loggedIn: req.session.loggedIn,
     });
   } catch (error) {
     res.status(500).json(error);
