@@ -4,7 +4,7 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const hbs = exphbs.create({});
 const socketio = require("socket.io");
-//const { message } = require("statuses");
+const routes = require("./controllers");
 const session = require("express-session");
 
 const app = express();
@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static("static"));
-app.use(require("./controllers"));
+app.use(routes);
 
 //Following code happens whenever a connection is made, including new users
 //trying to get image to work
