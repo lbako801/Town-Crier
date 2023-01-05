@@ -16,6 +16,9 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
+      validate: {
+        isAlphanumeric: true,
+      },
     },
     email: {
       type: DataTypes.STRING,
@@ -37,10 +40,7 @@ User.init(
       allowNull: false,
       references: {
         model: "city",
-        key: "id",
-      },
-      validate: {
-        isAlpha: true,
+        key: "city_name",
       },
     },
   },
