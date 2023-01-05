@@ -1,6 +1,28 @@
 // JavaScript file housing the interactions of the homepage file
+const path = require('path');
+const app = express();
+const PORT = 3000;
 
 
+// Get requests to collect the different posts - 10 on a page at a time
+const getPosts = () => 
+    fetch('/api/homepage', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+});
+
+const savePost = (post) => 
+    fetch('/api/homepage', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(post),
+    })
+    .then((res) => res.json())
+    .then((data) => console.log(data));
 
 
 // Making Create Post Button Operate Pop-Out
@@ -20,6 +42,28 @@ closebtn.addEventListener('click', (e) => {
         popupbox.classList.add('d-none');
     }, 150);
 });
+
+// Post request when submitting a comment - requires title and comment body
+const submitbtn = document.getElementById('submitbtn');
+submitbtn.addEventListener('click', (e) => {
+    let id = 001; // I don't need to add this correct as it's the primary key and should auto increment when posted
+    let creator_id = 001; // This is the foreign key, and should be retrieved from teh database when the client is logged in
+    let post_title = document.getElementById('posttitle');
+    let post_text = document.getElementById('postcontent');
+    let city_name = 'Salt Lake City'; // This will be retrieved from the query    
+
+    // Post request here after 
+    const newPost = {
+        creator_id: creator_id,
+        title: post_title.value,
+        text: post_text.value,
+        city: city_name
+    };
+
+    savePost(newPost);
+})
+
+
 
 // Basic fetch request to weather API
 const weatherapikey = '40f04d918b53d1a8a149e5f84300b159'; // key needed to make fetch call
