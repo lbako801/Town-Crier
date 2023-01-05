@@ -4,17 +4,17 @@ const postData = [
   {
     creator_id: 1,
     post_text: "Test text for post create",
-    city_name: "Layton",
+    city_name: "Provo",
   },
   {
     creator_id: 1,
     post_text: "Test text for post create 2",
-    city_name: "Layton",
+    city_name: "Provo",
   },
   {
     creator_id: 1,
     post_text: "Test text for post create 3",
-    city_name: "Ogden",
+    city_name: "Provo",
   },
 ];
 
