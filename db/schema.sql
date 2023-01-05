@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS Towncrier_db;
+
+CREATE DATABASE Towncrier_db;
