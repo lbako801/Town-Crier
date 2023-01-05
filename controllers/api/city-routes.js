@@ -10,15 +10,11 @@ router.get("/:city", async (req, res) => {
         city_name: requestedCity,
       },
     });
-    /* req.session.save(() => {
-      req.session.loggedIn = true;
-      console.log(req.session.loggedIn); 
-    });*/
     const posts = cityData.map((post) => post.get({ plain: true }));
 
     res.render("homepage", {
       posts,
-      //loggedIn: req.session.loggedIn,
+      loggedIn: req.session.loggedIn,
     });
   } catch (error) {
     console.log(error);
