@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const { Comment, Post } = require("../../models");
+const withAuth = require("../../middleware/auth");
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [{ model: Comment }],
