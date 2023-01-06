@@ -1,25 +1,5 @@
-const router = require("express").Router();
-const { Comment, Post } = require("../../models");
-const withAuth = require("../../middleware/auth");
-
-router.get("/:id", withAuth, async (req, res) => {
-  try {
-    const postData = await Post.findByPk(req.params.id, {
-      include: [{ model: Comment }],
-    });
-    if (!postData) {
-      res.status(404).json({ message: "No post with this id found." });
-      return;
-    }
-    console.log(postData);
-    res.render("homepage", {
-      postData,
-    });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json(error);
-  }
-});
+/* const router = require("express").Router();
+const { Comment } = require("../../models");
 
 router.post("/:id", async (req, res) => {
   try {
@@ -33,4 +13,6 @@ router.post("/:id", async (req, res) => {
     res.status(500).json(error);
   }
 });
+
 module.exports = router;
+ */
