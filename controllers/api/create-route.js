@@ -1,11 +1,9 @@
-const router = require("express").Router();
+/* const router = require("express").Router();
 const { User } = require("../../models");
 
 router.get("/", (req, res) => {
   try {
-    res.render("login", {
-      loggedIn: req.session.loggedIn,
-    });
+    res.render("login", {});
   } catch (error) {
     res.status(500).json(error);
   }
@@ -30,3 +28,4 @@ router.post("/", async (req, res) => {
 });
 
 module.exports = router;
+ */

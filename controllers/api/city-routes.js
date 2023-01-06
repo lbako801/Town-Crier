@@ -1,25 +1,6 @@
-const router = require("express").Router();
+/* const router = require("express").Router();
 const { Post } = require("../../models");
-const withAuth = require("../../middleware/auth");
-router.get("/:city", withAuth, async (req, res) => {
-  try {
-    const requestedCity = req.params.city;
 
-    const cityData = await Post.findAll({
-      where: {
-        city_name: requestedCity,
-      },
-    });
-    const posts = cityData.map((post) => post.get({ plain: true }));
-    res.render("homepage", {
-      posts,
-      loggedIn: req.session.loggedIn,
-    });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json(error);
-  }
-});
 router.post("/", async (req, res) => {
   try {
     const addPost = await Post.create({
@@ -34,3 +15,4 @@ router.post("/", async (req, res) => {
 });
 
 module.exports = router;
+ */
