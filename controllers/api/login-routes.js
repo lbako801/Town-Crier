@@ -11,6 +11,7 @@ router.get("/", (req, res) => {
 
 // Login Post Route
 router.post("/", async (req, res) => {
+  
   try {
     const userLogin = await User.findOne({
       where: { username: req.body.username },

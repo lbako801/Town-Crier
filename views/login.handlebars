@@ -4,19 +4,19 @@
         <img src="./Assets/town-crier-OFFICIAL-LOGO.png" alt="" class="img-fluid mx-auto">
     </div>
     
-    <section id="Sign-In" class="d-none">
+    <section id="Sign-In" class="">
         <div class="container rounded border border-dark w-50">
             <div class="welcome-banner d-flex flex-column mt-3">
                 <h2 class="welcome mx-auto">Welcome!</h2>
                 <h5 id="randfact" class="fact mx-auto">Random Fact Here!</h5>
             </div>
-            <div class="input-group mb-3 d-flex flex-column">
+            <form id="login-form" class="input-group mb-3 d-flex flex-column">
                 <input id="username" type="text" class="form-control rounded border border-dark w-75 mb-3 mt-3 mx-auto" placeholder="User Name"
                     aria-label="Recipient's username" aria-describedby="basic-addon2">
                 <input id="password" type="text" class="form-control rounded border border-dark w-75 mb-3 mx-auto" placeholder="Password"
                     aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <button id="signinbtn" type="button" class="btn btn-primary w-25 mx-auto">Log In</Inp></button>
-            </div>
+                <input id="signinbtn" type="submit" class="btn btn-primary w-25 mx-auto" placeholder="Log In"></Input>
+            </form>
             <div class="d-flex flex-row mb-2 justify-content-between">
                 <button onclick="location.href='./forgot-password'" id="forgot-password" class="btn btn-light border border-black rounded "><strong>Forgot Username or Password</strong></button>
                 <button onclick="location.href='./sign-up'" class="btn btn-light border border-black rounded"><strong>Join Town Crier</strong></button>
