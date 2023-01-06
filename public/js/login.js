@@ -16,8 +16,11 @@ const loginFormHandler = async (event) => {
       body: JSON.stringify({ username, password }),
     });
 
+    console.log("filler");
     if (response.ok) {
-      document.location.replace("/homepage");
+      const user = await response.json();
+      console.log(user);
+      document.location.replace(`/api/city/${user.location}`);
     } else {
       alert("Failed to log in");
     }

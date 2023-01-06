@@ -11,7 +11,6 @@ router.get("/", (req, res) => {
 
 // Login Post Route
 router.post("/", async (req, res) => {
-  
   try {
     const userLogin = await User.findOne({
       where: { username: req.body.username },
@@ -31,9 +30,7 @@ router.post("/", async (req, res) => {
       } else {
         req.session.save(() => {
           req.session.loggedIn = true;
-          res.status(200).json({
-            message: `${userLogin.dataValues.username} is now logged in`,
-          });
+          res.json(userLogin);
         });
       }
     });

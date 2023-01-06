@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { Post } = require("../../models");
-
-router.get("/:city", async (req, res) => {
+const withAuth = require("../../middleware/auth");
+router.get("/:city", withAuth, async (req, res) => {
   try {
     const requestedCity = req.params.city;
 
@@ -11,7 +11,6 @@ router.get("/:city", async (req, res) => {
       },
     });
     const posts = cityData.map((post) => post.get({ plain: true }));
-
     res.render("homepage", {
       posts,
       loggedIn: req.session.loggedIn,
@@ -21,7 +20,7 @@ router.get("/:city", async (req, res) => {
     res.status(500).json(error);
   }
 });
-router.post("/:city", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const addPost = await Post.create({
       creator_id: req.body.creator_id,
