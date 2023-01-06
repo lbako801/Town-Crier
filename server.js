@@ -18,7 +18,7 @@ app.set("view engine", "handlebars");
 const sessionInfo = {
   secret: "secrettext",
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
 };
 app.use(session(sessionInfo));
 app.use(express.json());
