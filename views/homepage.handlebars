@@ -1,0 +1,117 @@
+<body style="height: 1000px;" class="bg-dark text-light">
+    <div class="jumbotron d-flex flex-column my-0">
+        <h1 class="display-4 mx-auto my-0 text-dark">Welcome to Town Crier!</h1>
+        <h3 class="display-6 mx-auto my-2 text-dark">CITY, STATE</h3>
+        {{!-- <img src="../public/assets/town-crier-OFFICIAL-LOGO.png" class="rounded"
+            alt="Man yelling into megaphone."> --}}
+        {{!-- <div id="navbar" class="col">navbar</div> --}}
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary mb-2">
+        <button id="create-btn" class="btn btn-lg text-light border border-light" type="button">Create New Post</button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="navbar-nav ml-auto">
+                <div class="nav-item active">
+                    <a class="nav-link" href="" type="button">Trending</a>
+                </div>
+                <div class="nav-item active">
+                    <a class="nav-link" type="button" href="">Most Cried</a>
+                </div>
+
+                <div class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" type="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        View More
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="">View Profile</a></li>
+                        <li><a class="dropdown-item" href="">View Posts</a></li>
+                        <li><a class="dropdown-item" href="">Settings</a></li>
+                        <div class="dropdown-divider"></div>
+                        <li><a class="dropdown-item" href="#">Sign Out</a></li>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <section id="page-container" class="container-fluid" style>
+        <div class="row">
+
+            <div class="col-3">
+                {{!-- <div class="border border-dark rounded m-1">Sort By</div> --}}
+
+                <div class="d-flex flex-column m-2">
+                    <h4 class="ml-2 mb-1" style="text-decoration: underline;">Local Weather</h4>
+                    <div id="temperature" class="ml-2 mb-2"></div>
+                    <div class="d-flex flex-row">
+                        <div id="weatherdescription" class="ml-2"></div>
+                        <img id="weathericon" class="mx-auto" src="" alt="" style="height: 30px; width: 30px;"></img>
+                    </div>
+                    <div id="windspd" class="ml-2 mb-2"></div>
+                </div>
+
+                <div class="d-flex flex-column border border-dark rounded m-2">
+                    <h4 class="ml-2 mb-1" style="text-decoration: underline;">Local News</h4>
+
+                </div>
+                
+            </div>
+
+            <div id="post-conatainer" class="col-9 mx-auto">
+                <a class="post1" href=""><div class="border border-light rounded w-100 p-2 my-2 text-light">POST 1 TITLE USERNAME DATE-CREATED UPVOTES
+                    CRIES</div></a>
+                <a class="post2" href=""><div class="border border-light rounded w-100 p-2 my-2 text-light">POST 2 TITLE USERNAME DATE-CREATED UPVOTES
+                    CRIES</div></a>
+                <a class="post3" href=""><div class="border border-light rounded w-100 p-2 my-2 text-light">POST 3 TITLE USERNAME DATE-CREATED UPVOTES
+                    CRIES</div></a>
+                <a class="post4" href=""><div class="border border-light rounded w-100 p-2 my-2 text-light">POST 4 TITLE USERNAME DATE-CREATED UPVOTES
+                    CRIES</div></a>
+                <a class="post5" href=""><div class="border border-light rounded w-100 p-2 my-2 text-light">POST 5 TITLE USERNAME DATE-CREATED UPVOTES
+                    CRIES</div></a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="create-post-form" class="d-none bg-light w-50" style="position:fixed; top: 25%; left: 25%; transition:cubic-bezier(1, 0, 0, 1);">
+        <div id="popup-container" class="d-flex flex-column border border-dark mx-auto rounded">
+            <div class="d-flex flex-row justify-content-between">
+            <h1 class="text-center">Create a Post!</h1>
+            <button id="closebtn" class="btn btn-sm btn-danger m-2" style="height: 50%;">X</button>
+            </div>
+            <div class="form-group mx-2">
+                <label for="exampleFormControlInput1">Title</label>
+                <input id='posttitle' type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title">
+            </div>
+            <div class="form-group mx-2">
+                <label for="exampleFormControlInput1">Post</label>
+                <input id="postcontent" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Comment">
+            </div>
+            <button id="submitbtn" type="button" class="btn btn-primary mx-auto w-25 mb-2">Submit!</button>
+        </div>
+    </section>
+    
+
+    {{!-- <div>
+        <form id="message-box">
+            <input id="post-title" type="text"/>
+            <input id="msg" type="text" placeholder="TEST"/>
+            <button type="submit">SUBMIT</button>
+        </form>
+    </div> --}}
+
+
+    
+    <!-- Link to moment api -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <!-- Javascript Link to HTMl -->
+    <script src="./js/homepage.js"></script> {{!-- Handlebars directs to public folder automatically, use .public as the relative location--}}
+</body>
