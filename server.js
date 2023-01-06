@@ -17,6 +17,9 @@ app.set("view engine", "handlebars");
 //Telling server to use the static pages (handlebars) in the public folder
 const sessionInfo = {
   secret: "secrettext",
+  cookie: {
+    maxAge: 24 * 60 * 60 * 1000, // expires after 1 day
+  },
   resave: false,
   saveUninitialized: false,
 };
