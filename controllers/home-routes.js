@@ -3,6 +3,9 @@ const { Comment, Post } = require("../models");
 const withAuth = require("../middleware/auth");
 
 // Get login page
+router.get("/", (req, res) => {
+  res.render("login");
+});
 router.get("/login", (req, res) => {
   res.render("login");
 });
