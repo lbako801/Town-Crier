@@ -2,16 +2,8 @@ const router = require("express").Router();
 const { User } = require("../../models");
 const bcrypt = require("bcrypt");
 
-// Get login page
-router.get("/", (req, res) => {
-  res.render("login", {
-    loggedIn: req.session.loggedIn,
-  });
-});
-
 // Login Post Route
 router.post("/", async (req, res) => {
-  
   try {
     const userLogin = await User.findOne({
       where: { username: req.body.username },
@@ -31,9 +23,7 @@ router.post("/", async (req, res) => {
       } else {
         req.session.save(() => {
           req.session.loggedIn = true;
-          res.status(200).json({
-            message: `${userLogin.dataValues.username} is now logged in`,
-          });
+          res.json(userLogin);
         });
       }
     });
