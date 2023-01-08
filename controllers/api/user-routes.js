@@ -5,6 +5,7 @@ router.post("/post", async (req, res) => {
   try {
     const addPost = await Post.create({
       creator_id: req.body.creator_id,
+      post_title: req.body.title,
       post_text: req.body.post_text,
       city_name: req.body.city_name,
     });
