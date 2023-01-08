@@ -22,6 +22,10 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    post_title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     city_name: {
       type: DataTypes.STRING,
       allowNull: false,
