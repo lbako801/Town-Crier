@@ -47,4 +47,23 @@ router.post("/signup", async (req, res) => {
   }
 });
 
+router.post("/getdata", async (req, res) => {
+  try {
+    const requestedUser = req.body.username;
+    const userInfo = await User.findAll({
+      where: {
+        username: requestedUser,
+      },
+    });
+    const userData = {
+      id: userInfo[0].id,
+      username: userInfo[0].username,
+      location: userInfo[0].location,
+    };
+    console.log(userData);
+    res.json(userData);
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
 module.exports = router;

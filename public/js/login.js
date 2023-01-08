@@ -16,7 +16,6 @@ const loginFormHandler = async (event) => {
       body: JSON.stringify({ username, password }),
     });
 
-    console.log("filler");
     if (response.ok) {
       const user = await response.json();
       console.log(user);

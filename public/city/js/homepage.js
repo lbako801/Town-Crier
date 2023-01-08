@@ -1,24 +1,44 @@
 // JavaScript file housing the interactions of the homepage file
 
-// // Get requests to collect the different posts - 10 on a page at a time
-// const getPosts = () => 
-//     fetch('/api/homepage', {
-//         method: 'GET',
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-// });
+// Pulling username from URL params
+const URLPath = window.location.href;
+console.log(URLPath);
+const username = URLPath.split('/')[4];
+console.log(username); // gives username back after city/$username
 
-// const savePost = (post) => 
-//     fetch('/api/homepage', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(post),
-//     })
-//     .then((res) => res.json())
-//     .then((data) => console.log(data));
+// Variable Array Storing Information Needed for User
+let userData
+
+// Use username to fetch data required for homepage -- Need new get route made in home-route
+async function getUserInfo() {
+    
+    const data = await fetch('/api/user/getdata', {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({username})
+    });
+
+    const user = await data.json();
+    console.log(user);
+    userData = {
+        creator_id: user.id,
+        username: user.username,
+        location: user.location,
+    };
+
+    let h_location = document.getElementById('locationheader');
+    h_location.innerHTML = `${userData.location}`;
+
+    console.log(userData);
+};
+getUserInfo();
+
+// Fetch POST requests 
+
+
+
+
+
 
 
 // Making Create Post Button Operate Pop-Out
@@ -59,8 +79,6 @@ submitbtn.addEventListener('click', (e) => {
     savePost(newPost);
 })
 
-
-
 // Basic fetch request to weather API
 const weatherapikey = '40f04d918b53d1a8a149e5f84300b159'; // key needed to make fetch call
 let weatherinfo
@@ -100,7 +118,6 @@ async function renderWeather() {
     weatherdescription.innerHTML = `Weather: ${weatherinfo.description}`;
     windspd.innerHTML = `Wind Speed: ${weatherinfo.windspd} mph`;
 }
-
 renderWeather();
 
 
