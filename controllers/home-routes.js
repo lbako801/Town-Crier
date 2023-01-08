@@ -30,8 +30,6 @@ router.get("/city/:username", withAuth, async (req, res) => {
       },
     });
 
-    console.log(userInfo[0].location);
-
     const cityData = await Post.findAll({
       where: {
         city_name: userInfo[0].location,
@@ -43,18 +41,10 @@ router.get("/city/:username", withAuth, async (req, res) => {
       exclude: User.password,
     });
     const posts = cityData.map((post) => post.get({ plain: true }));
-<<<<<<< HEAD
-    console.log(posts);
-     res.render("homepage", {
-      posts,
-      loggedIn: req.session.loggedIn,
-    }) 
-=======
     res.render("homepage", {
       posts,
       loggedIn: req.session.loggedIn,
     });
->>>>>>> 369bfdd1d13e5a99550201b4ac97b7bbc8ec0336
   } catch (error) {
     console.log(error);
     res.status(500).json(error);
@@ -62,18 +52,25 @@ router.get("/city/:username", withAuth, async (req, res) => {
 });
 
 // Get individual posts
-router.get("/post/:id", withAuth, async (req, res) => {
+router.get("/post/:id", async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
-      include: [{ model: Comment }],
+      raw: true,
     });
     if (!postData) {
       res.status(404).json({ message: "No post with this id found." });
       return;
     }
+    const commentData = await Comment.findAll({
+      where: {
+        post_id: req.params.id,
+      },
+    });
+    const comments = commentData.map((comment) => comment.get({ plain: true }));
     console.log(postData);
     res.render("landing", {
       postData,
+      comments,
     });
   } catch (error) {
     console.log(error);
