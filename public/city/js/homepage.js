@@ -26,6 +26,9 @@ async function getUserInfo() {
         location: user.location,
     };
 
+    let welcomelocation = document.getElementById('welcomesign');
+    welcomelocation.innerHTML = `Welcome to Town Crier ${userData.username}!`
+
     let h_location = document.getElementById('locationheader');
     h_location.innerHTML = `${userData.location}`;
 
