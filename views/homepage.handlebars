@@ -70,7 +70,7 @@
                     CRIES</div></a> --}}
                 {{#each posts as |post|}}
                 <div class="border border-light rounded w-100 p-2 mb-3">
-                    <a class="post1" href="/post/{{this.id}}"><h3 class="border border-light rounded w-100 p-2 my-2 text-light">{{post.post_title}} by {{post.creator_id}}</h3></a>
+                    <a class="post1" href="/post/{{this.id}}"><h3 class="border border-light rounded w-100 p-2 my-2 text-light">{{post.post_title}} by {{this.user.username}}</h3></a>
                     <div class="" style="font-size: 20px;">{{post.post_text}}</div>
                 </div>
                 {{/each}}
