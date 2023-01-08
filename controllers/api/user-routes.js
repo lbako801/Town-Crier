@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Comment, User, Post } = require("../../models");
+const { Comment, User, Post, City } = require("../../models");
 
 router.post("/post", async (req, res) => {
   try {
@@ -31,18 +31,41 @@ router.post("/comment", async (req, res) => {
 router.post("/signup", async (req, res) => {
   try {
     console.log("req", req.body);
-    const newUserData = await User.create({
-      username: req.body.username,
-      email: req.body.email,
-      password: req.body.password,
-      location: req.body.location,
+    const checkCity = await City.findOne({
+      where: {
+        city_name: req.body.location,
+      },
     });
-    console.log("newuser", newUserData);
-    req.session.save(() => {
-      req.session.loggedIn = true;
-      console.log(req.session.loggedIn);
-      res.status(200).json(newUserData);
-    });
+    if (checkCity) {
+      const newUserData = await User.create({
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password,
+        location: req.body.location,
+      });
+      console.log("newuser", newUserData);
+      req.session.save(() => {
+        req.session.loggedIn = true;
+        console.log(req.session.loggedIn);
+        res.status(200).json(newUserData);
+      });
+    } else {
+      const addCity = await City.create({
+        city_name: req.body.location,
+      });
+      const newUserData = await User.create({
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password,
+        location: req.body.location,
+      });
+      console.log("newuser", newUserData);
+      req.session.save(() => {
+        req.session.loggedIn = true;
+        console.log(req.session.loggedIn);
+        res.status(200).json(newUserData);
+      });
+    }
   } catch (error) {
     res.status(500).json(error);
   }
