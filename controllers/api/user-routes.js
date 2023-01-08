@@ -45,4 +45,17 @@ router.post("/signup", async (req, res) => {
   }
 });
 
+router.post("/getdata", async (req, res) => {
+  try {
+    const requestedUser = req.body.username;
+    const userInfo = await User.findAll({
+      where: {
+        username: requestedUser,
+      },
+    });
+    res.json(userInfo);
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
 module.exports = router;
