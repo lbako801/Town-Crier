@@ -20,7 +20,7 @@ router.get("/signup", (req, res) => {
 });
 
 // Get individual city
-router.get("/city/:username", async (req, res) => {
+router.get("/city/:username", withAuth, async (req, res) => {
   try {
     const requestedUser = req.params.username;
 
