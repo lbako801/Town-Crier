@@ -31,22 +31,15 @@
             <div class="d-flex mx-auto flex-column justify-content-around w-75">
 
             <div class="d-flex flex-row mx-auto p-2 border border-dark w-75 rounded justify-content-between">
-                <div id="post-title" class="font-weight-bold">POST TITLE by CREATOR</div>
-                <div id="post-date" class="font-weight-bold">DATE-CREATED</div>
+                <div id="post-title" class="font-weight-bold">{{postData.post_title}}</div>
+                <div id="post-date" class="font-weight-bold">{{postData.createdAt}}</div>
             </div>
             <div id="post-cont" class="d-flex flex-row mx-auto mt-2 p-2 border border-dark w-75 rounded">
-                <div id="post-body" class="text-monospace"> Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Provident, molestiae perferendis dicta tempora alias repellendus odio voluptatum dignissimos ullam
-                    voluptatibus consectetur debitis quis obcaecati modi tempore, pariatur esse molestias at!</div>
+                <div id="post-body" class="text-monospace">{{postData.post_text}}</div>
             </div>
-            <div id="comment-container" class="d-flex flex-column mx-auto mt-2 p-2 border border-dark rounded w-75">
-                <div class="comment my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis velit autem
-                    vero fugit deleniti asperiores. Ipsa quis nostrum accusantium! Amet deleniti sapiente quis, sunt
-                    omnis iure assumenda veniam molestiae accusantium!</div>
-                <div class="comment my-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus, numquam
-                    officia? Quod temporibus illum reprehenderit illo voluptatibus. Vel excepturi enim qui vero fugit
-                    temporibus rerum eaque, reprehenderit molestias repellat magnam.</div>
-            </div>
+            {{#each postData.comments as |comments|}}
+                <div class="border border-dark text-dark">{{comments.comment_text}}</div>
+            {{/each}}
         </div>
     </section>
 
