@@ -29,20 +29,23 @@
     <section class="container-fluid mb-5">
         <div class="row d-flex flex-column">
             <div class="d-flex mx-auto flex-column justify-content-around w-75">
-
-            <div class="d-flex flex-row mx-auto p-2 border border-dark w-75 rounded justify-content-between">
-                <div id="post-title" class="font-weight-bold">{{postData.post_title}}</div>
-                <div id="post-date" class="font-weight-bold">{{postData.createdAt}}</div>
+    
+                <div class="d-flex flex-row mx-auto p-2 border border-dark w-75 rounded justify-content-between">
+                    <div id="post-title" class="font-weight-bold mx-2">{{postData.post_title}}</div>
+                    <div id="post-date" class="font-weight-bold mx-2">{{postData.createdAt}}</div>
+                </div>
+                <div id="post-cont" class="mx-auto mt-2 p-2 border border-dark w-75 rounded mb-2">
+                    <div id="post-body" class="text-monospace mx-2">{{postData.post_text}}</div>
+                </div>
+                <div class="d-flex flex-column w-75 mx-auto border border-dark">
+                    {{#each comments }}
+                        <div class="border border-dark text-dark my-2 mx-2">{{this.comment_text}}</div>
+                    {{/each}}
+                </div>
+    
             </div>
-            <div id="post-cont" class="d-flex flex-row mx-auto mt-2 p-2 border border-dark w-75 rounded">
-                <div id="post-body" class="text-monospace">{{postData.post_text}}</div>
-            </div>
-            {{#each postData.comments as |comments|}}
-                <div class="border border-dark text-dark">{{comments.comment_text}}</div>
-            {{/each}}
-        </div>
     </section>
 
 
-    <script src='../public/js/index.js'></script>
+    {{!-- <script src='/js/landing.js'></script> --}}
 </body>
