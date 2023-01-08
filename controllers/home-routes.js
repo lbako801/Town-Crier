@@ -43,10 +43,18 @@ router.get("/city/:username", withAuth, async (req, res) => {
       exclude: User.password,
     });
     const posts = cityData.map((post) => post.get({ plain: true }));
+<<<<<<< HEAD
+    console.log(posts);
+     res.render("homepage", {
+      posts,
+      loggedIn: req.session.loggedIn,
+    }) 
+=======
     res.render("homepage", {
       posts,
       loggedIn: req.session.loggedIn,
     });
+>>>>>>> 369bfdd1d13e5a99550201b4ac97b7bbc8ec0336
   } catch (error) {
     console.log(error);
     res.status(500).json(error);
