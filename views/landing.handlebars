@@ -67,13 +67,11 @@
             </div>
 
             <div class="d-flex flex-row mx-auto p-2 border border-dark w-75 rounded justify-content-between">
-                <div id="post-title" class="font-weight-bold">POST TITLE by CREATOR</div>
+                <div id="post-title" class="font-weight-bold">POST ID: {{id}}</div>
                 <div id="post-date" class="font-weight-bold">DATE-CREATED</div>
             </div>
             <div id="post-cont" class="d-flex flex-row mx-auto mt-2 p-2 border border-dark w-75 rounded">
-                <div id="post-body" class="text-monospace"> Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Provident, molestiae perferendis dicta tempora alias repellendus odio voluptatum dignissimos ullam
-                    voluptatibus consectetur debitis quis obcaecati modi tempore, pariatur esse molestias at!</div>
+                <div id="post-body" class="text-monospace">{{post_text}}</div>
             </div>
             <div id="comment-container" class="d-flex flex-column mx-auto mt-2 p-2 border border-dark rounded w-75">
                 <div class="comment my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis velit autem
@@ -87,5 +85,5 @@
     </section>
 
 
-    <script src='../public/js/index.js'></script>
+    <script src='/js/landing.js'></script>
 </body>
