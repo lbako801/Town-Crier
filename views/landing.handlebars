@@ -13,6 +13,24 @@
         <a class="nav-link" href="/homepage" type="button">Home</a>
     </nav>
 
+    <section id="create-post-form" class="d-none bg-light w-50" style="position:fixed; top: 25%; left: 25%; transition:cubic-bezier(1, 0, 0, 1);">
+        <div id="popup-container" class="d-flex flex-column border border-dark mx-auto rounded">
+            <div class="d-flex flex-row">
+                <h1 class="text-center text-dark ml-5">Create a Post!</h1>
+                <button id="closebtn" class="btn btn-sm btn-danger m-2" style="height: 50%;">X</button>
+            </div>
+            <div class="form-group mx-2">
+                <label for="exampleFormControlInput1">Title</label>
+                <input id='posttitle' type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title">
+            </div>
+            <div class="form-group mx-2">
+                <label for="exampleFormControlInput1">Post</label>
+                <input id="postcontent" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Comment">
+            </div>
+            <button id="submitbtn" type="button" class="btn btn-primary mx-auto w-25 mb-2">Submit!</button>
+        </div>
+    </section>
+
 
     <section class="container-fluid mb-5">
         <div class="row d-flex flex-column">
