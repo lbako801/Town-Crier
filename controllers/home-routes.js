@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Comment, Post } = require("../models");
+const { Comment, Post, User } = require("../models");
 const withAuth = require("../middleware/auth");
 
 // Get login page
@@ -20,14 +20,23 @@ router.get("/signup", (req, res) => {
 });
 
 // Get individual city
-router.get("/city/:city", withAuth, async (req, res) => {
+router.get("/city/:username", async (req, res) => {
   try {
-    const requestedCity = req.params.city;
+    const requestedUser = req.params.username;
+
+    const userInfo = await User.findAll({
+      where: {
+        username: requestedUser,
+      },
+    });
+
+    console.log(userInfo[0].location);
 
     const cityData = await Post.findAll({
       where: {
-        city_name: requestedCity,
+        city_name: userInfo[0].location,
       },
+      include: [{ model: Comment }],
     });
     const posts = cityData.map((post) => post.get({ plain: true }));
     res.render("homepage", {
