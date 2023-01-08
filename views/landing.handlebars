@@ -9,20 +9,8 @@
 
 <div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
-        <a class="navbar-brand" href="#" type="button">Create New Post</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="navbar-nav ml-auto">
-                <div class="nav-item active">
-                    <a class="nav-link" href="/homepage" type="button">Home</a>
-                </div>
-            </div>
-
-        </div>
-        </div>
+        <a class="navbar-brand" href="#" type="button">Create New Comment</a>
+        <a class="nav-link" href="/homepage" type="button">Home</a>
     </nav>
 
 
@@ -31,16 +19,22 @@
             <div class="d-flex mx-auto flex-column justify-content-around w-75">
 
             <div class="d-flex flex-row mx-auto p-2 border border-dark w-75 rounded justify-content-between">
-                <div id="post-title" class="font-weight-bold">{{post_title}}</div>
-                <div id="post-date" class="font-weight-bold">{{created_at}}</div>
+                <div id="post-title" class="font-weight-bold">{{postData.post_title}}</div>
+                <div id="post-date" class="font-weight-bold">{{postData.created_at}}</div>
             </div>
             <div id="post-cont" class="d-flex flex-row mx-auto mt-2 p-2 border border-dark w-75 rounded">
-                <div id="post-body" class="text-monospace">{{post_text}}</div>
+                <div id="post-body" class="text-monospace">{{postData.post_text}}</div>
             </div>
             <div id="comment-container" class="d-flex flex-column mx-auto mt-2 p-2 border border-dark rounded w-75">
-                {{#each comment as |comment|}}
-                <div class="comment my-2">{{comment_text}}</div>
+                {{#if postData.length }}
+                {{#each postData.comments as |comment|}}
+                <div class="comment my-2">{{comment.comment_text}}</div>
                 {{/each}}
+                {{else}}
+                <div class="w-100 p-2 mb-3">
+                    <h2 class="text-center">There are no comments for this post just yet. Be the first!</h2>
+                </div>
+                {{/if}}
                 
         </div>
     </section>
