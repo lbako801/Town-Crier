@@ -3,33 +3,43 @@
 // Pulling username from URL params
 const URLPath = window.location.href;
 console.log(URLPath);
-const userName = URLPath.split('/')[4];
-console.log(userName); // gives username back after city/$username
+const username = URLPath.split('/')[4];
+console.log(username); // gives username back after city/$username
 
 // Variable Array Storing Information Needed for User
 let userData
 
 // Use username to fetch data required for homepage -- Need new get route made in home-route
-const getUserInfo = async (event) => {
-    event.preventDefault();
-
+async function getUserInfo() {
+    
     const data = await fetch('/api/user/getdata', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({userName})
+        body: JSON.stringify({username})
     });
 
     const user = await data.json();
+    console.log(user);
     userData = {
         creator_id: user.id,
         username: user.username,
         location: user.location,
     };
 
-    console.log(userData);
-}
+    let h_location = document.getElementById('locationheader');
+    h_location.innerHTML = `${userData.location}`;
 
-console.log(userData);
+    console.log(userData);
+};
+getUserInfo();
+
+// Fetch POST requests 
+
+
+
+
+
+
 
 // Making Create Post Button Operate Pop-Out
 const createbtn = document.getElementById("create-btn"); // Creatbtn object found by ID
@@ -68,8 +78,6 @@ submitbtn.addEventListener('click', (e) => {
 
     savePost(newPost);
 })
-
-
 
 // Basic fetch request to weather API
 const weatherapikey = '40f04d918b53d1a8a149e5f84300b159'; // key needed to make fetch call
@@ -110,7 +118,6 @@ async function renderWeather() {
     weatherdescription.innerHTML = `Weather: ${weatherinfo.description}`;
     windspd.innerHTML = `Wind Speed: ${weatherinfo.windspd} mph`;
 }
-
 renderWeather();
 
 
