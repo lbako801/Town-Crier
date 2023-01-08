@@ -29,12 +29,14 @@ router.post("/comment", async (req, res) => {
 
 router.post("/signup", async (req, res) => {
   try {
+    console.log("req", req.body);
     const newUserData = await User.create({
       username: req.body.username,
       email: req.body.email,
       password: req.body.password,
       location: req.body.location,
     });
+    console.log("newuser", newUserData)
     req.session.save(() => {
       req.session.loggedIn = true;
       console.log(req.session.loggedIn);
