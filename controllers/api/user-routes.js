@@ -53,7 +53,13 @@ router.post("/getdata", async (req, res) => {
         username: requestedUser,
       },
     });
-    res.json(userInfo);
+    const userData = {
+      id: userInfo[0].id,
+      username: userInfo[0].username,
+      location: userInfo[0].location,
+    };
+    console.log(userData);
+    res.json(userData);
   } catch (error) {
     res.status(500).json({ message: "Internal server error" });
   }
