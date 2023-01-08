@@ -10,7 +10,7 @@ router.post("/", async (req, res) => {
     });
     if (!userLogin) {
       res.status(400).json({
-        message: "Username  is incorrect. Please try again",
+        message: "Username or Password is incorrect. Please try again",
       });
       return;
     }
@@ -18,7 +18,11 @@ router.post("/", async (req, res) => {
     const hash = userLogin.dataValues.password;
     bcrypt.compare(req.body.password, hash, function (err, result) {
       if (!result) {
-        res.status(400).json({ message: "password bad" });
+        res
+          .status(400)
+          .json({
+            message: "Username or Password is incorrect. Please try again",
+          });
         return;
       } else {
         req.session.save(() => {
