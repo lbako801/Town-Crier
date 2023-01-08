@@ -1,25 +1,35 @@
 // JavaScript file housing the interactions of the homepage file
 
-// // Get requests to collect the different posts - 10 on a page at a time
-// const getPosts = () => 
-//     fetch('/api/homepage', {
-//         method: 'GET',
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-// });
+// Pulling username from URL params
+const URLPath = window.location.href;
+console.log(URLPath);
+const userName = URLPath.split('/')[4];
+console.log(userName); // gives username back after city/$username
 
-// const savePost = (post) => 
-//     fetch('/api/homepage', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(post),
-//     })
-//     .then((res) => res.json())
-//     .then((data) => console.log(data));
+// Variable Array Storing Information Needed for User
+let userData
 
+// Use username to fetch data required for homepage -- Need new get route made in home-route
+async function getInfo() {
+    const data = await fetch('/api/getdata', {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({userName})
+    });
+
+    const user = await data.json();
+    userData = {
+        creator_id: user.id,
+        username: user.username,
+        location: user.location,
+    };
+
+    return userData;
+}
+
+getInfo();
+
+console.log(userData);
 
 // Making Create Post Button Operate Pop-Out
 const createbtn = document.getElementById("create-btn"); // Creatbtn object found by ID
