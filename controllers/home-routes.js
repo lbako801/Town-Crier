@@ -36,13 +36,18 @@ router.get("/city/:username", async (req, res) => {
       where: {
         city_name: userInfo[0].location,
       },
-      include: [{ model: Comment }],
+      include: [
+        { model: Comment },
+        { model: User, attributes: { exclude: ["password"] } },
+      ],
+      exclude: User.password,
     });
     const posts = cityData.map((post) => post.get({ plain: true }));
-    res.render("homepage", {
+    res.json(posts);
+    /* res.render("homepage", {
       posts,
       loggedIn: req.session.loggedIn,
-    });
+    }) */
   } catch (error) {
     console.log(error);
     res.status(500).json(error);
