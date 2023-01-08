@@ -26,6 +26,9 @@ async function getUserInfo() {
         location: user.location,
     };
 
+    let h_location = document.getElementById('locationheader');
+    h_location.innerHTML = `${userData.location}`;
+
     console.log(userData);
 };
 getUserInfo();
