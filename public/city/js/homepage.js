@@ -10,8 +10,10 @@ console.log(userName); // gives username back after city/$username
 let userData
 
 // Use username to fetch data required for homepage -- Need new get route made in home-route
-async function getInfo() {
-    const data = await fetch('/api/getdata', {
+const getUserInfo = async (event) => {
+    event.preventDefault();
+
+    const data = await fetch('/api/user/getdata', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({userName})
@@ -24,10 +26,8 @@ async function getInfo() {
         location: user.location,
     };
 
-    return userData;
+    console.log(userData);
 }
-
-getInfo();
 
 console.log(userData);
 
