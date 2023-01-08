@@ -26,58 +26,15 @@ async function getUserInfo() {
         location: user.location,
     };
 
+    let welcomelocation = document.getElementById('welcomesign');
+    welcomelocation.innerHTML = `Welcome to Town Crier ${userData.username}!`
+
     let h_location = document.getElementById('locationheader');
     h_location.innerHTML = `${userData.location}`;
 
     console.log(userData);
 };
 getUserInfo();
-
-// Fetch POST requests 
-
-
-
-
-
-
-
-// Making Create Post Button Operate Pop-Out
-const createbtn = document.getElementById("create-btn"); // Creatbtn object found by ID
-createbtn.addEventListener('click', (e) => { // Event listener function when clicked
-    setTimeout(function () {
-        const popupbox = document.getElementById('create-post-form');
-        popupbox.classList.remove('d-none');
-    }, 150);
-});
-
-// Exit button out of creating a post
-const closebtn = document.getElementById('closebtn');
-closebtn.addEventListener('click', (e) => {
-    setTimeout(function() {
-        const popupbox = document.getElementById('create-post-form');
-        popupbox.classList.add('d-none');
-    }, 150);
-});
-
-// Post request when submitting a comment - requires title and comment body
-const submitbtn = document.getElementById('submitbtn');
-submitbtn.addEventListener('click', (e) => {
-    let id = 001; // I don't need to add this correct as it's the primary key and should auto increment when posted
-    let creator_id = 001; // This is the foreign key, and should be retrieved from teh database when the client is logged in
-    let post_title = document.getElementById('posttitle');
-    let post_text = document.getElementById('postcontent');
-    let city_name = 'Salt Lake City'; // This will be retrieved from the query    
-
-    // Post request here after 
-    const newPost = {
-        creator_id: creator_id,
-        title: post_title.value,
-        text: post_text.value,
-        city: city_name
-    };
-
-    savePost(newPost);
-})
 
 // Basic fetch request to weather API
 const weatherapikey = '40f04d918b53d1a8a149e5f84300b159'; // key needed to make fetch call
@@ -120,10 +77,57 @@ async function renderWeather() {
 }
 renderWeather();
 
+// Making Create Post Button Operate Pop-Out
+const createbtn = document.getElementById("create-btn"); // Creatbtn object found by ID
+createbtn.addEventListener('click', (e) => { // Event listener function when clicked
+    setTimeout(function () {
+        const popupbox = document.getElementById('create-post-form');
+        popupbox.classList.remove('d-none');
+    }, 150);
+});
 
 
-// News Column
-newsapikey = '44d40cc667d343519a9845f04327121d';
+// Exit button out of creating a post
+const closebtn = document.getElementById('closebtn');
+closebtn.addEventListener('click', (e) => {
+    setTimeout(function() {
+        const popupbox = document.getElementById('create-post-form');
+        popupbox.classList.add('d-none');
+    }, 150);
+});
+
+// Function for posting a fetch to server
+function savePost(someitem) {
+    fetch('/api/user/post', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify(someitem)
+    })
+    .then(location.reload()) // reload window location after posting a post
+}
+
+// Post request when submitting a comment - requires title and comment body
+const submitbtn = document.getElementById('submitbtn');
+submitbtn.addEventListener('click', (e) => {
+    let creator_id = userData.creator_id; // This is the foreign key, and should be retrieved from teh database when the client is logged in
+    let post_title = document.getElementById('posttitle');
+    let post_text = document.getElementById('postcontent');
+    let city_name = userData.location; // This will be retrieved from the query    
+
+    // Post request here after 
+    const newPost = {
+        creator_id: creator_id,
+        title: post_title.value,
+        post_text: post_text.value,
+        city_name: city_name
+    };
+
+    // Fetch request for posting a new post
+    savePost(newPost)
+
+    // Include closing create a post pop up after hitting submit
+
+})
 
 
 
