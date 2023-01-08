@@ -3,23 +3,23 @@
 // Pulling username from URL params
 const URLPath = window.location.href;
 console.log(URLPath);
-const userName = URLPath.split('/')[4];
-console.log(userName); // gives username back after city/$username
+const username = URLPath.split('/')[4];
+console.log(username); // gives username back after city/$username
 
 // Variable Array Storing Information Needed for User
 let userData
 
 // Use username to fetch data required for homepage -- Need new get route made in home-route
-const getUserInfo = async (event) => {
-    event.preventDefault();
-
+async function getUserInfo() {
+    
     const data = await fetch('/api/user/getdata', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({userName})
+        body: JSON.stringify({username})
     });
 
     const user = await data.json();
+    console.log(user);
     userData = {
         creator_id: user.id,
         username: user.username,
@@ -27,9 +27,10 @@ const getUserInfo = async (event) => {
     };
 
     console.log(userData);
-}
+};
 
-console.log(userData);
+getUserInfo();
+
 
 // Making Create Post Button Operate Pop-Out
 const createbtn = document.getElementById("create-btn"); // Creatbtn object found by ID
@@ -38,6 +39,8 @@ createbtn.addEventListener('click', (e) => { // Event listener function when cli
         const popupbox = document.getElementById('create-post-form');
         popupbox.classList.remove('d-none');
     }, 150);
+
+    console.log(userData);
 });
 
 // Exit button out of creating a post
