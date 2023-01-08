@@ -28,8 +28,14 @@ async function getUserInfo() {
 
     console.log(userData);
 };
-
 getUserInfo();
+
+// Fetch POST requests 
+
+
+
+
+
 
 
 // Making Create Post Button Operate Pop-Out
@@ -39,8 +45,6 @@ createbtn.addEventListener('click', (e) => { // Event listener function when cli
         const popupbox = document.getElementById('create-post-form');
         popupbox.classList.remove('d-none');
     }, 150);
-
-    console.log(userData);
 });
 
 // Exit button out of creating a post
@@ -71,8 +75,6 @@ submitbtn.addEventListener('click', (e) => {
 
     savePost(newPost);
 })
-
-
 
 // Basic fetch request to weather API
 const weatherapikey = '40f04d918b53d1a8a149e5f84300b159'; // key needed to make fetch call
@@ -113,7 +115,6 @@ async function renderWeather() {
     weatherdescription.innerHTML = `Weather: ${weatherinfo.description}`;
     windspd.innerHTML = `Wind Speed: ${weatherinfo.windspd} mph`;
 }
-
 renderWeather();
 
 
