@@ -43,18 +43,10 @@ router.get("/city/:username", withAuth, async (req, res) => {
       exclude: User.password,
     });
     const posts = cityData.map((post) => post.get({ plain: true }));
-<<<<<<< HEAD
-    console.log(posts);
-     res.render("homepage", {
-      posts,
-      loggedIn: req.session.loggedIn,
-    }) 
-=======
     res.render("homepage", {
       posts,
       loggedIn: req.session.loggedIn,
     });
->>>>>>> 369bfdd1d13e5a99550201b4ac97b7bbc8ec0336
   } catch (error) {
     console.log(error);
     res.status(500).json(error);
@@ -66,6 +58,7 @@ router.get("/post/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [{ model: Comment }],
+      raw: true,
     });
     if (!postData) {
       res.status(404).json({ message: "No post with this id found." });
