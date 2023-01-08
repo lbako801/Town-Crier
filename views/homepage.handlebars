@@ -14,7 +14,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        {{!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="navbar-nav ml-auto">
                 <div class="nav-item active">
                     <a class="nav-link" href="" type="button">Trending</a>
@@ -38,11 +38,11 @@
                 </div>
 
             </div>
-        </div>
+        </div> --}}
     </nav>
 
 
-    <section id="page-container" class="container-fluid" style>
+    <section id="page-container" class="container-fluid">
         <div class="row">
 
             <div class="col-3">
@@ -66,14 +66,19 @@
             </div>
 
             <div id="post-conatainer" class="col-9 mx-auto mb-2">
-                {{!-- <a class="post1" href=""><div class="border border-light rounded w-100 p-2 my-2 text-light">POST 1 TITLE USERNAME DATE-CREATED UPVOTES
-                    CRIES</div></a> --}}
+                {{#if posts.length }}
                 {{#each posts as |post|}}
                 <div class="border border-light rounded w-100 p-2 mb-3">
-                    <a class="post1" href="/post/{{this.id}}"><h3 class="border border-light rounded w-100 p-2 my-2 text-light">{{post.post_title}} by {{post.creator_id}}</h3></a>
+                    <a class="post1" href="/post/{{this.id}}"><h3 class="border border-light rounded w-100 p-2 my-2 text-light">{{post.post_title}} by {{this.user.username}}</h3></a>
                     <div class="" style="font-size: 20px;">{{post.post_text}}</div>
+                    <h6>Comments: {{this.comments.length}}</h6>
                 </div>
                 {{/each}}
+                {{else}}
+                <div class="border border-light rounded w-100 p-2 mb-3">
+                    <h2 class="text-center">There are no posts for this city just yet. Be the first!</h2>
+                </div>
+                {{/if}}
             </div>
 
         </div>
