@@ -6,6 +6,7 @@ const hbs = exphbs.create({});
 const socketio = require("socket.io");
 const routes = require("./controllers");
 const session = require("express-session");
+const sequelize = require("./config/connection");
 
 const app = express();
 const server = http.createServer(app);
@@ -59,5 +60,5 @@ const PORT = process.env.PORT || 3000;
 // server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 sequelize.sync({ force: true }).then(() => {
-  app.listen(PORT, () => console.log(Now listening on port ${PORT}));
+  app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
 });
