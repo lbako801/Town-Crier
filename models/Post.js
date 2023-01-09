@@ -33,9 +33,6 @@ Post.init(
         model: "city",
         key: "city_name",
       },
-      validate: {
-        isAlpha: true,
-      },
     },
   },
   {
