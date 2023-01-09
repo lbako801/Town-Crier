@@ -1,28 +1,24 @@
 // JavaScript file housing the interactions of the homepage file
-const path = require('path');
-const app = express();
-const PORT = 3000;
 
+// // Get requests to collect the different posts - 10 on a page at a time
+// const getPosts = () => 
+//     fetch('/api/homepage', {
+//         method: 'GET',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+// });
 
-// Get requests to collect the different posts - 10 on a page at a time
-const getPosts = () => 
-    fetch('/api/homepage', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-});
-
-const savePost = (post) => 
-    fetch('/api/homepage', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(post),
-    })
-    .then((res) => res.json())
-    .then((data) => console.log(data));
+// const savePost = (post) => 
+//     fetch('/api/homepage', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(post),
+//     })
+//     .then((res) => res.json())
+//     .then((data) => console.log(data));
 
 
 // Making Create Post Button Operate Pop-Out

@@ -17,7 +17,9 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/homepage");
+      const user = await response.json();
+      console.log(user);
+      document.location.replace(`city/${user.username}`);
     } else {
       alert("Failed to log in");
     }

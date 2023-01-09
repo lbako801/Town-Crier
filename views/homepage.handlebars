@@ -1,7 +1,7 @@
 <body style="height: 1000px;" class="bg-dark text-light">
     <div class="jumbotron d-flex flex-column my-0">
-        <h1 class="display-4 mx-auto my-0 text-dark">Welcome to Town Crier!</h1>
-        <h3 class="display-6 mx-auto my-2 text-dark">CITY, STATE</h3>
+        <h1 id='welcomesign' class="display-4 mx-auto my-0 text-dark"></h1>
+        <h3 id='locationheader' class="display-6 mx-auto my-2 text-dark"></h3>
         {{!-- <img src="../public/assets/town-crier-OFFICIAL-LOGO.png" class="rounded"
             alt="Man yelling into megaphone."> --}}
         {{!-- <div id="navbar" class="col">navbar</div> --}}
@@ -14,35 +14,10 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="navbar-nav ml-auto">
-                <div class="nav-item active">
-                    <a class="nav-link" href="" type="button">Trending</a>
-                </div>
-                <div class="nav-item active">
-                    <a class="nav-link" type="button" href="">Most Cried</a>
-                </div>
-
-                <div class="nav-item dropdown active">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" type="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        View More
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="">View Profile</a></li>
-                        <li><a class="dropdown-item" href="">View Posts</a></li>
-                        <li><a class="dropdown-item" href="">Settings</a></li>
-                        <div class="dropdown-divider"></div>
-                        <li><a class="dropdown-item" href="#">Sign Out</a></li>
-                    </div>
-                </div>
-
-            </div>
-        </div>
     </nav>
 
 
-    <section id="page-container" class="container-fluid" style>
+    <section id="page-container" class="container-fluid">
         <div class="row">
 
             <div class="col-3">
@@ -57,25 +32,23 @@
                     </div>
                     <div id="windspd" class="ml-2 mb-2"></div>
                 </div>
-
-                <div class="d-flex flex-column border border-dark rounded m-2">
-                    <h4 class="ml-2 mb-1" style="text-decoration: underline;">Local News</h4>
-
-                </div>
                 
             </div>
 
-            <div id="post-conatainer" class="col-9 mx-auto">
-                <a class="post1" href=""><div class="border border-light rounded w-100 p-2 my-2 text-light">POST 1 TITLE USERNAME DATE-CREATED UPVOTES
-                    CRIES</div></a>
-                <a class="post2" href=""><div class="border border-light rounded w-100 p-2 my-2 text-light">POST 2 TITLE USERNAME DATE-CREATED UPVOTES
-                    CRIES</div></a>
-                <a class="post3" href=""><div class="border border-light rounded w-100 p-2 my-2 text-light">POST 3 TITLE USERNAME DATE-CREATED UPVOTES
-                    CRIES</div></a>
-                <a class="post4" href=""><div class="border border-light rounded w-100 p-2 my-2 text-light">POST 4 TITLE USERNAME DATE-CREATED UPVOTES
-                    CRIES</div></a>
-                <a class="post5" href=""><div class="border border-light rounded w-100 p-2 my-2 text-light">POST 5 TITLE USERNAME DATE-CREATED UPVOTES
-                    CRIES</div></a>
+            <div id="post-conatainer" class="col-9 mx-auto mb-2">
+                {{#if posts.length }}
+                {{#each posts as |post|}}
+                <div class="border border-light rounded w-100 p-2 mb-3">
+                    <a class="post1" href="/post/{{this.id}}"><h2 class="border border-light rounded w-100 p-2 my-2 text-light">{{post.post_title}} by {{this.user.username}}</h2></a>
+                    <div class="" style="font-size: 30px;">{{post.post_text}}</div>
+                    <h6>Comments: {{this.comments.length}}</h6>
+                </div>
+                {{/each}}
+                {{else}}
+                <div class="border border-light rounded w-100 p-2 mb-3">
+                    <h2 class="text-center">There are no posts for this city just yet. Be the first!</h2>
+                </div>
+                {{/if}}
             </div>
 
         </div>
@@ -83,9 +56,9 @@
 
     <section id="create-post-form" class="d-none bg-light w-50" style="position:fixed; top: 25%; left: 25%; transition:cubic-bezier(1, 0, 0, 1);">
         <div id="popup-container" class="d-flex flex-column border border-dark mx-auto rounded">
-            <div class="d-flex flex-row justify-content-between">
-            <h1 class="text-center">Create a Post!</h1>
-            <button id="closebtn" class="btn btn-sm btn-danger m-2" style="height: 50%;">X</button>
+            <div class="d-flex flex-row">
+                <h1 class="text-center text-dark ml-5">Create a Post!</h1>
+                <button id="closebtn" class="btn btn-sm btn-danger m-2" style="height: 50%;">X</button>
             </div>
             <div class="form-group mx-2">
                 <label for="exampleFormControlInput1">Title</label>
