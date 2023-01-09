@@ -1,27 +1,24 @@
-<body class="bg-info">
-    <div class="jumbotron d-flex flex-column my-0">
-        <h1 class="display-4 mx-auto my-0">Welcome to Town Crier!</h1>
-        <h3 id="location" class="display-6 mx-auto my-2">{{postData.city_name}}</h3>
+<body class="bg-dark text-light">
+    <div class="jumbotron jumbotron-fluid d-flex flex-column my-0">
+        <h1 class="display-4 mx-auto text-dark my-0">Welcome to Town Crier!</h1>
+        <h3 id="location" class="display-6 text-dark mx-auto my-2">{{postData.city_name}}</h3>
         {{!-- <img src="../public/assets/town-crier-OFFICIAL-LOGO.png" class="rounded"
             alt="Man yelling into megaphone."> --}}
         {{!-- <div id="navbar" class="col">navbar</div> --}}
     </div>
 
 <div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
-        <div id="create-btn" class="navbar-brand"  type="button">Create New Comment</div>
-        {{!-- <a class="nav-link" href="/homepage" type="button">Home</a> --}}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary mb-2">
+        <div id="create-btn" class="btn btn-lg text-light border border-light"  type="button">Create New Comment</div>
     </nav>
 
-    <section id="create-comment-form" class="d-none bg-light w-50" style="position:fixed; top: 25%; left: 25%; transition:cubic-bezier(1, 0, 0, 1);">
-        <div id="popup-container" class="d-flex flex-column border border-dark mx-auto rounded">
-            <div class="d-flex flex-row">
-                <h1 class="text-center text-dark ml-5">Create a Comment!</h1>
-                <button id="closebtn" class="btn btn-sm btn-danger m-2" style="height: 50%;">X</button>
-            </div>
+    <section id="create-comment-form" class="d-none bg-light w-50 rounded" style="position:fixed; top: 25%; left: 25%; transition:cubic-bezier(1, 0, 0, 1);">
+        <div id="popup-container" class="d-flex flex-column mx-auto rounded"> 
+            <button id="closebtn" class="btn btn-sm btn-danger m-2" style="height: 30px; width: 30px;  position: absolute; right: 10px;">X</button>          
+            <h1 class="text-center text-dark ml-5">Post a Comment!</h1>                 
             <div class="form-group mx-2">
                 <label for="exampleFormControlInput1">comment</label>
-                <input id="postcontent" type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                <input id="postcontent" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Comment Here!">
             </div>
             <button id="submitbtn" type="button" class="btn btn-primary mx-auto w-25 mb-2">Submit!</button>
         </div>
@@ -32,17 +29,23 @@
         <div class="row d-flex flex-column">
             <div class="d-flex mx-auto flex-column justify-content-around w-75">
     
-                <div class="d-flex flex-row mx-auto p-2 border border-dark w-75 rounded justify-content-between">
-                    <div id="post-title" class="font-weight-bold mx-2">{{postData.post_title}}</div>
-                    <div id="post-date" class="font-weight-bold mx-2">{{postData.createdAt}}</div>
+                <div class="d-flex flex-row mx-auto p-2 border border-light w-75 rounded justify-content-between">
+                    <h3 id="post-title" class="font-weight-bold mx-2 my-auto">{{postData.post_title}}</h3>
+                    <div id="post-date" class="font-weight-bold mx-2 my-auto">{{postData.createdAt}}</div>
                 </div>
-                <div id="post-cont" class="mx-auto mt-2 p-2 border border-dark w-75 rounded mb-2">
-                    <div id="post-body" class="text-monospace mx-2">{{postData.post_text}}</div>
+                <div id="post-cont" class="mx-auto mt-2 p-2 border border-light w-75 rounded mb-2">
+                    <div id="post-body" class="mx-2" style="font-size: 20px">{{postData.post_text}}</div>
                 </div>
-                <div class="d-flex flex-column w-75 mx-auto border border-dark">
+                <div class="d-flex flex-column w-75 mx-auto border border-light rounded">
+                    {{#if comments.length }}
                     {{#each comments }}
-                        <div class="border border-dark text-dark my-2 mx-2">{{this.comment_text}}</div>
+                    <div class="my-2 mx-2">{{this.comment_text}}</div>
                     {{/each}}
+                    {{else}}
+                    <div class="rounded w-100 p-2 my-auto">
+                        <div class="text-center" style="font-size: 20px;">There are no comments for this post just yet. Be the first!</div>
+                    </div>
+                    {{/if}}
                 </div>
     
             </div>
