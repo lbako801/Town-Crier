@@ -1,5 +1,5 @@
 <body style="height: 1000px;" class="bg-dark text-light">
-    <div class="jumbotron d-flex flex-column my-0">
+    <div class="jumbotron jumbotron-fluid d-flex flex-column my-0">
         <h1 id='welcomesign' class="display-4 mx-auto my-0 text-dark"></h1>
         <h3 id='locationheader' class="display-6 mx-auto my-2 text-dark"></h3>
         {{!-- <img src="../public/assets/town-crier-OFFICIAL-LOGO.png" class="rounded"
@@ -8,37 +8,29 @@
     </div>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary mb-2">
-        <button id="create-btn" class="btn btn-lg text-light border border-light" type="button">Create New Post</button>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
+        <button id="create-btn" class="btn btn-lg text-light border border-light">Create New Post</button>
     </nav>
 
 
     <section id="page-container" class="container-fluid">
         <div class="row">
 
-            <div class="col-3">
-                {{!-- <div class="border border-dark rounded m-1">Sort By</div> --}}
-
-                <div class="d-flex flex-column m-2">
-                    <h4 class="ml-2 mb-1" style="text-decoration: underline;">Local Weather</h4>
-                    <div id="temperature" class="ml-2 mb-2"></div>
+            <div class="col-3 mb-2">
+                <div class="d-flex flex-column border border-light rounded w-75 p-2">
+                    <h2 class="m-2" style="text-decoration: underline;">Local Weather</h2>
+                    <div id="temperature" class="ml-2 mb-2" style="font-size: 20px;"></div>
                     <div class="d-flex flex-row">
-                        <div id="weatherdescription" class="ml-2"></div>
-                        <img id="weathericon" class="mx-auto" src="" alt="" style="height: 30px; width: 30px;"></img>
+                        <div id="weatherdescription" class="ml-2" style="font-size: 20px;"></div>
+                        <img id="weathericon" class="mx-auto" src="" alt="" style="height: 40px; width: 40px;"></img>
                     </div>
-                    <div id="windspd" class="ml-2 mb-2"></div>
+                    <div id="windspd" class="ml-2 mb-2" style="font-size: 20px;"></div>
                 </div>
-                
             </div>
 
-            <div id="post-conatainer" class="col-9 mx-auto mb-2">
+            <div id="post-conatainer" class="col-9">
                 {{#if posts.length }}
                 {{#each posts as |post|}}
-                <div class="border border-light rounded w-100 p-2 mb-3">
+                <div class="border border-light rounded w-100 p-2 mb-2">
                     <a class="post1" href="/post/{{this.id}}"><h2 class="border border-light rounded w-100 p-2 my-2 text-light">{{post.post_title}} by {{this.user.username}}</h2></a>
                     <div class="" style="font-size: 30px;">{{post.post_text}}</div>
                     <h6>Comments: {{this.comments.length}}</h6>
@@ -54,12 +46,10 @@
         </div>
     </section>
 
-    <section id="create-post-form" class="d-none bg-light w-50" style="position:fixed; top: 25%; left: 25%; transition:cubic-bezier(1, 0, 0, 1);">
-        <div id="popup-container" class="d-flex flex-column border border-dark mx-auto rounded">
-            <div class="d-flex flex-row">
-                <h1 class="text-center text-dark ml-5">Create a Post!</h1>
-                <button id="closebtn" class="btn btn-sm btn-danger m-2" style="height: 50%;">X</button>
-            </div>
+    <section id="create-post-form" class="d-none bg-light w-50 rounded" style="position:fixed; top: 25%; left: 25%; transition:cubic-bezier(1, 0, 0, 1);">
+        <div id="popup-container" class="d-flex flex-column mx-auto rounded">
+            <button id="closebtn" class="btn btn-sm btn-danger m-2 text-center" style="height: 30px; width: 30px;  position: absolute; right: 10px;">X</button>
+            <h1 class="text-center text-dark ml-5">Create a Post!</h1>
             <div class="form-group mx-2">
                 <label for="exampleFormControlInput1">Title</label>
                 <input id='posttitle' type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title">
