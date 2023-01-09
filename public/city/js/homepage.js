@@ -121,20 +121,10 @@ submitbtn.addEventListener('click', (e) => {
         post_text: post_text.value,
         city_name: city_name
     };
-
+console.log(newPost);
     // Fetch request for posting a new post
     savePost(newPost)
 
     // Include closing create a post pop up after hitting submit
 
 })
-
-
-
-
-
-
-
-
-
-
