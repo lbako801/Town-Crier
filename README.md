@@ -25,19 +25,19 @@ You can visit the page live at https://town-crier-app.herokuapp.com/.
 
 Login or click Join Town Crier and sign up to get a town page.
 
-![Login form](./public/assets/login-form.png)
-![Sign up form](./public/assets/sign-up-form.png)
+![Login form](./public/Assets/login-form.png)
+![Sign up form](./public/Assets/sign-up-form.png)
 
 Click "Create New Post" to add a post to your town page.
 Or click on a post to open the post and see the comments.
 
-![Town page](./public/assets/town-page.png)
+![Town page](./public/Assets/town-page.png)
 
  
 Click the create new comment button to add a comment to the post.
 To get back to the town page use your browsers back arrow until the town page comes back. You will be logged out automatically after 24 hours.
   
-![Post page](./public/assets/post-page.png)
+![Post page](./public/Assets/post-page.png)
 
 ## License
 
