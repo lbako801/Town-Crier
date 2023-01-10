@@ -17,8 +17,6 @@ You can find our live page at: https://town-crier-app.herokuapp.com/.
 
 Town Crier repo: https://github.com/lbako801/Town-Crier.
 
-To create your own local server using express and mysql. Put your database info into the ``````.env file. Then open a terminal on ```server.js``` and run an ```npm i``` command. Enter ```mysql -u root -p``` in your terminal to open your mysql shell. Then run ```SOURCE db/schema.sql;```. This sets up the database. You can use ```exit;``` to leave to mysql shell. Exit the shell and run ```node seeds/index.js``` in your terminal to seed your database. Finally enter ```npm start``` into your terminal to start the server. Open your browser and go to ```"localhost:3000/login"``` to find the login page in order to access the app.
-
 ## Usage
 
 You can visit the page live at https://town-crier-app.herokuapp.com/. 
